@@ -1,0 +1,39 @@
+<?php
+
+namespace Micks\AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Micks\AppBundle\Entity\Sites
+ *
+ * @ORM\Table(name="sites")
+ * @ORM\Entity
+ */
+class Sites
+{
+    /**
+     * @var integer $id
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string $name
+     *
+     * @ORM\Column(name="name", type="string", length=45, nullable=true)
+     */
+    private $name;
+
+    /**
+     * @var string $url
+     *
+     * @ORM\Column(name="url", type="text", nullable=true)
+     */
+    private $url;
+
+
+}

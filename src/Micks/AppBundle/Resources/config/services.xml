@@ -1,0 +1,28 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <service id="micks.app.admin.users" class="Micks\AppBundle\Admin\UsersAdmin">
+            <tag name="sonata.admin" manager_type="orm" group="Administration" label="Users"/>
+            <argument/>
+            <argument>Micks\AppBundle\Entity\Users</argument>
+            <argument>SonataAdminBundle:CRUD</argument>
+        </service>
+    </services>
+    
+    <!--
+    <parameters>
+        <parameter key="micks_app.example.class">Micks\AppBundle\Example</parameter>
+    </parameters>
+
+    <services>
+        <service id="micks_app.example" class="%micks_app.example.class%">
+            <argument type="service" id="service_id" />
+            <argument>plain_value</argument>
+            <argument>%parameter_name%</argument>
+        </service>
+    </services>
+    -->
+</container>

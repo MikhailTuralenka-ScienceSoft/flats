@@ -1,0 +1,32 @@
+<?php
+
+namespace Micks\AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Micks\AppBundle\Entity\UserRole
+ *
+ * @ORM\Table(name="user_role")
+ * @ORM\Entity
+ */
+class UserRole
+{
+    /**
+     * @var integer $id
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string $name
+     *
+     * @ORM\Column(name="name", type="string", length=255, nullable=true)
+     */
+    private $name;
+
+
+}

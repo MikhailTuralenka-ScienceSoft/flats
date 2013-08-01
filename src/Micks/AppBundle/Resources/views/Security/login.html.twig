@@ -1,0 +1,28 @@
+{% extends 'MicksAppBundle::standard_layout.html.twig' %}
+{% block content %}
+    {% if error %}
+        <div class="alert-error">{{ error.message }}</div>
+    {% endif %}
+
+    <form action="{{ path('_micks_admin_check') }}" method="POST">
+        <table>
+            <tr>
+                <td>
+                    <label for="username">Email:</label>
+                </td>
+                <td>
+                    <input type="text" id="username" name="_username" value="{{ last_username }}" />
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="password">Password:</label>
+                </td>
+                <td>
+                    <input type="password" id="password" name="_password" />
+                </td>
+            </tr>
+        </table>
+        <input type="submit" name="login" value="Login" />
+    </form>
+{% endblock %}

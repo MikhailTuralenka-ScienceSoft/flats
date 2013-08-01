@@ -1,0 +1,84 @@
+<?php
+
+namespace Micks\AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Micks\AppBundle\Entity\Adverts
+ *
+ * @ORM\Table(name="adverts")
+ * @ORM\Entity
+ */
+class Adverts
+{
+    /**
+     * @var integer $id
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string $price
+     *
+     * @ORM\Column(name="price", type="string", length=45, nullable=true)
+     */
+    private $price;
+
+    /**
+     * @var integer $rooms
+     *
+     * @ORM\Column(name="rooms", type="integer", nullable=true)
+     */
+    private $rooms;
+
+    /**
+     * @var boolean $flat
+     *
+     * @ORM\Column(name="flat", type="boolean", nullable=true)
+     */
+    private $flat;
+
+    /**
+     * @var string $name
+     *
+     * @ORM\Column(name="name", type="string", length=45, nullable=true)
+     */
+    private $name;
+
+    /**
+     * @var string $master
+     *
+     * @ORM\Column(name="master", type="string", length=45, nullable=true)
+     */
+    private $master;
+
+    /**
+     * @var string $phone
+     *
+     * @ORM\Column(name="phone", type="string", length=45, nullable=false)
+     */
+    private $phone;
+
+    /**
+     * @var \DateTime $time
+     *
+     * @ORM\Column(name="time", type="datetime", nullable=true)
+     */
+    private $time;
+
+    /**
+     * @var Sites
+     *
+     * @ORM\ManyToOne(targetEntity="Sites")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="site_id", referencedColumnName="id")
+     * })
+     */
+    private $site;
+
+
+}

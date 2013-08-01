@@ -1,0 +1,35 @@
+micks_app:
+    resource: "@MicksAppBundle/Controller/DefaultController.php"
+    type:     annotation
+    prefix:   /
+
+micks_app_security:
+    resource: "@MicksAppBundle/Controller/SecurityController.php"
+    type:     annotation
+    prefix: /
+
+# app/config/routing.yml
+admin:
+    resource: '@SonataAdminBundle/Resources/config/routing/sonata_admin.xml'
+    prefix: /
+ 
+_sonata_admin:
+    resource: .
+    type: sonata_admin
+    prefix: /
+
+sonata_page_cache:
+    resource: '@SonataCacheBundle/Resources/config/routing/cache.xml'
+    prefix: /
+    
+#gallery:
+#    resource: '@SonataMediaBundle/Resources/config/routing/gallery.xml'
+#    prefix: /media/gallery
+
+#media:
+#    resource: '@SonataMediaBundle/Resources/config/routing/media.xml'
+#    prefix: /media
+# Internal routing configuration to handle ESI
+#_internal:
+#    resource: "@FrameworkBundle/Resources/config/routing/internal.xml"
+#    prefix:   /_internal

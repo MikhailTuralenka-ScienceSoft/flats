@@ -1,0 +1,34 @@
+jms_security_extra:
+    secure_all_services: false
+    expressions: true
+
+security:
+    encoders:
+        Micks\AppBundle\Entity\Users:
+            algorithm: sha512
+            encode-as-base64: true
+            iterations: 10
+
+    providers:
+        main:
+            entity: { class: MicksAppBundle:Users, property: email }
+
+    firewalls:
+        main:
+            pattern: /.*
+            form_login:
+                check_path: _micks_admin_check
+                login_path: _micks_admin_login
+                default_target_path: sonata_admin_dashboard
+            logout:
+                path: _micks_admin_logout
+                target: _micks_admin_login
+            security: true
+            anonymous: true
+            
+    access_control:
+        - { path: /admin/login, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: /admin/login_check, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: /admin/.*, role: ROLE_ADMIN }
+        - { path: /.*, role: IS_AUTHENTICATED_ANONYMOUSLY }
+
